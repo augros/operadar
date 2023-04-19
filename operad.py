@@ -56,6 +56,11 @@ The modifications are recorded via git:
 # * improve the lisibility and efficiency
 # 
 # Next step = simplify also plot_Hcut... ==> gather everything on git
+                
+# C. Augros 19/04/2023
+# Code ok for Arome (ICE3/ICE4?) and MesoNH
+# output = netcdf file (dataset with xarray)                
+# implemented on github  https://github.com/augros/operadar               
 #=====================================================================================
 
 
