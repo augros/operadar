@@ -15,6 +15,8 @@ import bronx
 import operad_conf as cf
 import read_arome_lib as arolib
 
+epygram.init_env()
+
 
 ## ---- to be included in conf file
 #micro="ICE3"
@@ -39,7 +41,7 @@ output: M, Tc, CC, CCI, lon, lat, Z
 """
 def read_arome(micro,timestr):   
     
-    
+    epygram.init_env()
     # ======== Open file 
     modelfile=cf.pathmodel+cf.filestart+timestr+":00.fa"
     
