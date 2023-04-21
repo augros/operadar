@@ -7,6 +7,9 @@ Created on Apr 4 2023
 
 Configuration file for operad.py
 """
+import pandas as pd
+import datetime as dt
+
 
 # ==========  Model simulation options ===============
 model='Arome'
@@ -34,15 +37,22 @@ radarloc="center" # radar location: center or latlon (if latlon ==> to be define
 #lonrad=
 
 # ========= Zoom ==========================
-lat_min,lat_max=47.0,50.
-lon_min,lon_max=1.,4.
+lat_min,lat_max=42,45
+lon_min,lon_max=1,5
 
 
 # ========== Directories / files name options =========
-timelist=[8] #range(1,36) #[5,6,7,8] #ech=[20] #[36]
+# Time list
+deb = pd.Timestamp('14:00')
+fin = pd.Timestamp('23:45')
+step = dt.timedelta(minutes=15)
+timelist=[]
+while deb <= fin :
+    timelist += [deb.strftime('%H:%M')]
+    deb += step
 
 #pathmodel="/home/augros/DONNEES/AROME/20220816/PEAROME/R09/"
-pathmodel="/cnrm/precip/users/augros/DONNEES/AROME/"
+pathmodel="/cnrm/precip/users/davidcl/GN49_20220816_aro00Z_ICE3/"
 filestart="historic.arome.franmg-01km30+00" #08:00.fa"
 
 # Tmatrix directory
@@ -50,7 +60,7 @@ table_ind="" # number of the selected Tmatrix table
 repTmat="/cnrm/precip/users/augros/DONNEES/TMATRIX" #"." 
 
 # Output files
-pathfick=pathmodel+'k'+MixedPhase+'/'
+pathfick=pathmodel+'k'+MixedPhase+'/OPOU-MCLA-NIME/'
 pathTmat=repTmat+"/OUTPUT/"
 
 
