@@ -202,6 +202,7 @@ def compute_mixedphase(M,MixedPhase,expMmin):
         if(cf.micro =="LIMA_AG" or cf.micro =="ICE4"):	# CLOE
             M["wh"][Fw == 0] = 0				# CLOE
             M["wh"][maskBB] = M["hh"][maskBB]			# CLOE
+            M["hh"][maskBB] = 0 # addition Clotilde (in the mixed phase, there is no dry hail)
             
     return M, Fw
 #==========================================================================

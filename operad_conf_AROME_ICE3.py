@@ -41,13 +41,14 @@ lon_min,lon_max=1.,4.
 # ========== Directories / files name options =========
 timelist=[8] #range(1,36) #[5,6,7,8] #ech=[20] #[36]
 
-#pathmodel="/home/augros/DONNEES/AROME/20220816/PEAROME/R09/"
-pathmodel="/cnrm/precip/users/augros/DONNEES/AROME/"
+pathmodel="/home/augros/DONNEES/AROME/20220816/PEAROME/R09/"
+#pathmodel="/cnrm/precip/users/augros/DONNEES/AROME/"
 filestart="historic.arome.franmg-01km30+00" #08:00.fa"
 
 # Tmatrix directory
 table_ind="" # number of the selected Tmatrix table 
-repTmat="/cnrm/precip/users/augros/DONNEES/TMATRIX" #"." 
+#repTmat="/cnrm/precip/users/augros/DONNEES/TMATRIX" #"." 
+repTmat="/home/augros/Programmes/OPERADAR"
 
 # Output files
 pathfick=pathmodel+'k'+MixedPhase+'/'
