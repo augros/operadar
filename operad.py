@@ -136,20 +136,17 @@ print("End reading Tmatrix tables")
 # ----------------------- Loop over timesteps -----------------------------
 # ----------------------------------------------------------------------------
 for time in cf.timelist: 
+    print(time)
         
     # =========== Reading model variables =============
     print("Reading model variables")    
     
     # Return 3D model variables + coordinates
     if (cf.model=="MesoNH"):
-        timestr='00'+str(time)
-        timestr=timestr[-3:]
-        [M, Tc, CC, CCI, X, Y, Z]=meso.read_mesonh(cf.micro,timestr)
+        [M, Tc, CC, CCI, X, Y, Z]=meso.read_mesonh(cf.micro,time)
     
     elif (cf.model=="Arome"):
-        timestr="0"+str(time)
-        timestr=timestr[-2:]
-        [M, Tc, CC, CCI, lon, lat, Z]=aro.read_arome(cf.micro,timestr)
+        [M, Tc, CC, CCI, lon, lat, Z]=aro.read_arome(cf.micro,time)
     else:
         print("cf.model="+cf.model+" => needs to be either Arome or MesoNH")
       
@@ -245,7 +242,7 @@ for time in cf.timelist:
             Vm_t["Rhohv"] = np.sqrt(np.divide(Vm_t["S11S22"], Vm_t["S11S11"]*Vm_t["S22S22"]))
             
             # ========== Writing dpol var for a single hydrometeor type t           
-            fick = cf.pathfick+"k_"+cf.model+"_"+cf.band+'_'+str(int(cf.distmax_rad/1000.))+"_ech"+timestr+"_"+t
+            fick = cf.pathfick+"k_"+cf.model+"_"+cf.band+'_'+str(int(cf.distmax_rad/1000.))+"_ech"+time+"_"+t
                
             if (cf.model=="Arome"):
                 save.save_dpolvar_arome(liste_var_pol, Vm_t, Tc, Z,lat,lon,fick)
@@ -273,7 +270,7 @@ for time in cf.timelist:
 
     
     # ============= Save dpol var for all hydromet in txt or npz file
-    fick = cf.pathfick+"k_"+cf.model+"_"+ cf.band+'_'+str(int(cf.distmax_rad/1000.))+"_ech"+timestr+"_2"
+    fick = cf.pathfick+"k_"+cf.model+"_"+ cf.band+'_'+str(int(cf.distmax_rad/1000.))+"_ech"+time+"_2"
     
     if (cf.model=="Arome"):
         save.save_dpolvar_arome(liste_var_pol, Vm_k, Tc, Z,lat,lon,fick)
