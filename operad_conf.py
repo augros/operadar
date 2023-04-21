@@ -50,13 +50,14 @@ while deb <= fin :
     timelist += [deb.strftime('%H:%M')]
     deb += step
 
-#pathmodel="/home/augros/DONNEES/AROME/20220816/PEAROME/R09/"
+# Model files
 pathmodel="/cnrm/precip/users/davidcl/GN51_20220816_aro00Z_ICE4/"
 filestart="historic.arome.franmg-01km30+00" #08:00.fa"
 
 # Tmatrix directory
 table_ind="" # number of the selected Tmatrix table 
-repTmat="/cnrm/precip/users/augros/DONNEES/TMATRIX" #"." 
+#repTmat="/cnrm/precip/users/augros/DONNEES/TMATRIX" #"." 
+repTmat="/home/augros/Programmes/OPERADAR/"
 
 # Output files
 pathfick=pathmodel+'k'+MixedPhase+'/OPOU-MCLA-NIME/'
