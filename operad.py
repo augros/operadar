@@ -81,8 +81,8 @@ import save_dpolvar as save
 
 #============= Parameters to configure =========================
 
-configfile="operad_conf_AROME_ICE3.py"
-#configfile="operad_conf_MesoNH_ICE3idpx.py"
+#configfile="operad_conf_AROME_ICE3.py"
+configfile="operad_conf_MesoNH_ICE3idpx.py"
 
 os.system("cp "+configfile+" operad_conf.py")
 
