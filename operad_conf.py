@@ -12,11 +12,11 @@ import datetime as dt
 
 # ==========  Model simulation options ===============
 model='Arome'
-micro = "ICE4" # CLOE ICE3 / LIMA_SG / LIMA_AG / ICE4
+micro = "ICE3" # CLOE ICE3 / LIMA_SG / LIMA_AG / ICE4
 LIMToption="" #"" or "cstmu" the model variables are taken from LIMT simulation # but a constant mu is applied in the PSD  for the dpol variables calculation 
 CCIconst=800.
-list_types=['vv','cc','rr','ii','ss','gg','hh']
-list_types_tot = ['rr','ii','ss','gg','wg','wh']
+list_types=['vv','cc','rr','ii','ss','gg']
+list_types_tot = ['rr','ii','ss','gg','wg']
 
 MixedPhase="Fwposg" # 'Tpos' or 'Fwpos' or 'Fwposg' #
  
@@ -42,22 +42,21 @@ lon_min,lon_max=1,5
 
 # ========== Directories / files name options =========
 # Time list
-deb = pd.Timestamp('14:00')
-fin = pd.Timestamp('23:45')
-step = dt.timedelta(minutes=15)
-timelist=[]
+deb = pd.Timestamp('2022-08-16 14:00')
+fin = pd.Timestamp('2022-08-16 23:45')
+step = dt.timedelta(minutes=5)
+datetimelist=[]
 while deb <= fin :
-    timelist += [deb.strftime('%H:%M')]
+    datetimelist += [deb]
     deb += step
 
 # Model files
-pathmodel="/cnrm/precip/users/davidcl/GN51_20220816_aro00Z_ICE4/"
+pathmodel="/cnrm/precip/users/davidcl/20220816_aro00Z_ICE3/"
 filestart="historic.arome.franmg-01km30+00" #08:00.fa"
 
 # Tmatrix directory
-table_ind="" # number of the selected Tmatrix table 
-#repTmat="/cnrm/precip/users/augros/DONNEES/TMATRIX" #"." 
-repTmat="/home/augros/Programmes/OPERADAR/"
+table_ind="" # number of the selected Tmatrix table
+repTmat="/cnrm/precip/users/augros/DONNEES/TMATRIX"
 
 # Output files
 pathfick=pathmodel+'k'+MixedPhase+'/OPOU-MCLA-NIME/'
